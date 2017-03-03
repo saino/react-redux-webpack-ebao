@@ -1,0 +1,425 @@
+import React, {Component, PropTypes} from 'react';
+import '../Products.scss';
+import Warning from './Warning';
+import Agreement from './Agreement';
+import Questionnaire from './Questionnaire';
+
+export default class Details extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tabIndex : 0,
+      proposalIndex : 0,
+      showWarning : false,
+      showAgreement : false,
+      showAudit : false,
+    }
+  }
+
+  render() {
+    return (
+      <section className="details-section">
+        <Warning open={this.state.showWarning} onRequestClose={()=>this.setState({showWarning: false})}/>
+        <Agreement  open={this.state.showAgreement} onRequestClose={()=>this.setState({showAgreement: false})}/>
+        <Questionnaire  open={this.state.showAudit} onRequestClose={()=>this.setState({showAudit: false})}/>
+        <article id="wrapper" style={{backgroundColor: '#e3e3e8'}} className="details-article">
+          <div>
+            <div className="subsidy-ad">
+              <div>
+                <div className="subsidy-ad-tit">
+                  <div>
+                    <h2>安心e家医疗保险</h2>
+                    <p></p>
+                  </div>
+                </div>
+                <div className="mask-brush">
+                  <ul className="subsidy-ad-ul">
+                    <li>
+                      <div><p>适用人群</p>
+                        <p><span>28天-64周岁</span><span>健康人群</span></p></div>
+                    </li>
+                    <li>
+                      <div>
+                        <p>保险期间</p>
+                        <p>1年</p></div>
+                    </li>
+                    <li>
+                      <div><p>缴费方式</p>
+                        <p>一次性缴费</p></div>
+                    </li>
+                  </ul>
+
+                  <div className="subsidy-ad-safety">
+                    <div>
+                      <p>保险特点</p>
+                      <div className="safety-box">
+
+                        <div className="safety-cen">
+                          <div className="sp-icon"><img className="iconfont1" src={require('../assets/iconfont-kuaican1.png')}/></div>
+                          <div className="caption">
+                            <p>住院医疗更安心</p>
+                            <p>家庭保额500万/年</p>
+                          </div>
+                        </div>
+
+                        <div className="safety-cen">
+                          <div className="sp-icon"><img className="iconfont2" src={require('../assets/iconfont-golf.png')}/></div>
+                          <div className="caption">
+                            <p>住院门诊又省心 </p>
+                            <p> 创新加入住院前后</p>
+                            <p>门急诊费用</p>
+                          </div>
+                        </div>
+
+                        <div className="safety-cen">
+                          <div className="sp-icon"><img className="iconfont3" src={require('../assets/iconfont-iphone.png')}/></div>
+                          <div className="caption">
+                            <p>低廉保费超贴心</p>
+                            <p>全家最低不到3元/天</p>
+                          </div>
+                        </div>
+
+                      </div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="subsidy-con">
+              <div className="pro-introduced public-subsidy pt35 pb51">
+                <p>产品简介</p>
+                <div className="con-box">
+                  <p>本产品对于被保险人在保险期间内因疾病或意外伤害发生的住院医疗费用、特殊门诊医疗费用、住院前后门急诊医疗费用等给予全面的保障。</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="subsidy-con">
+              <div className="public-subsidy pro-introduced">
+                <p>保障方案</p>
+                <div className="con-box">
+                  <div className="product-box">
+                    <div className="product-con" style={{display:'block',marginBottom:0}}>
+                      <table>
+                        <thead>
+                        <tr>
+                          <th width="50%" colSpan="2">安心e家</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td><p>家庭累计年度保额</p></td>
+                          <td><p>500万</p></td>
+                        </tr>
+                        <tr>
+                          <td><p>赔付比例</p></td>
+                          <td><p>100%</p></td>
+                        </tr>
+                        <tr>
+                          <td><p>家庭累计年免赔额</p></td>
+                          <td><p>2万</p></td>
+                        </tr>
+                        </tbody>
+                      </table>
+
+                      <table>
+                        <thead>
+                        <tr>
+                          <th width="50%" colSpan="2">保障内容</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td style={{textAlign: 'left'}}><p>一、住院医疗保险金家庭累计年保额（含床位费、护理费、医生费、诊疗费、救护车费、检查检验费、特殊检查治疗费、治疗费、药费、手术费等）</p></td>
+                          <td rowSpan="3"><p>500万</p></td>
+                        </tr>
+                        <tr>
+                          <td style={{textAlign: 'left'}}><p>二、住院前后门急诊保险金家庭累计年保额</p></td>
+                        </tr>
+                        <tr>
+                          <td style={{textAlign: 'left'}}><p>三、特殊门诊医疗保险金家庭累计年保额</p></td>
+                        </tr>
+                        <tr>
+                          <td colSpan="2" style={{textAlign: 'left'}}><p>四、健康管理服务（包含在线资讯、在线体重数据解读、在线健康咨询、在线体检数据解读、健康问卷等）</p></td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <div className="agreement" onClick={()=>this.setState({showAgreement: true})}>详见特别约定</div>
+                <form id="self">
+                  <div className="scheme-cover" id="insuranceMode">
+                    <label className={this.state.proposalIndex===0?'active':''} onClick={()=>this.setState({proposalIndex:0})}><input name="cover-tp" type="radio" value="1"/><span>为子女投保</span></label>
+                    <label className={this.state.proposalIndex===1?'active':''} onClick={()=>this.setState({proposalIndex:1})}><input name="cover-tp" type="radio" value="2"/><span>为父母投保</span></label>
+                  </div>
+                  <div className="info-group">
+                    <label className="group-hd">投保人姓名</label>
+                    <div className="group-ctr"><input id="tbrname" maxLength="25" className="pad" type="text" placeholder="请输入投保人姓名"/></div>
+                  </div>
+                  <div className="info-group">
+                    <label className="group-hd">身份证号码</label>
+                    <div className="group-ctr"><input id="tbrcard" className="pad idCardCode" type="text" maxLength="18" placeholder="请输入有效的身份证号码"/></div>
+                  </div>
+                  <div className="info-group">
+                    <label className="group-hd">手机号码</label>
+                    <div className="group-ctr"><input className="pad" id="tbrPhone" maxLength="11" type="text" placeholder="请输入手机号"/></div>
+                  </div>
+                  <div className="info-group">
+                    <label className="group-hd">被保险人姓名</label>
+                    <div className="group-ctr"><input className="" id="bbrname" maxLength="25" type="text" placeholder="请输入被保险人"/></div>
+                  </div>
+                  <div className="info-group">
+                    <label className="group-hd">身份证号码</label>
+                    <div className="group-ctr"><input id="bbrcard" className="pad" maxLength="18" type="text" placeholder="请输入有效的身份证号码"/></div>
+                  </div>
+                  <div className="info-group mt20">
+                    <label className="group-hd">健康告知</label>
+                    <div className="group-ctr group-select rg-dwn">
+                      <strong value="k1" className="clickaudit" onClick={()=>this.setState({showAudit: true})}>点击审核</strong>
+                      <img className="jt left" src={require('../assets/left.png')}/>
+                    </div>
+                  </div>
+                  <div className="check-dis"><p>社保</p><div><label><input type="checkbox" name="sb" id="bbr_sb1" checked="checked"/><span></span></label></div></div>
+
+                  <div id="zin" style={{display: 'block'}}>
+                    <div className="info-group mt20">
+                      <label className="group-hd">被保险人姓名</label>
+                      <div className="group-ctr">
+                        <input className="pad" type="text" placeholder="请输入被保人姓名" id="m_bbrname" maxLength="25"/>
+                          <div className="addpen"><strong>添加</strong><img className="people" src={require('../assets/people.png')}/></div>
+                      </div>
+                    </div>
+                    <div className="info-group mt20">
+                      <label className="group-hd">与投保人关系</label>
+                      <div className="group-ctr relationship group-select rg-dwn">
+                        <input type="hidden" name="credentialsName" id="m_credentialsName"/>
+                          <strong id="qxz">请选择</strong>
+                          <img className="jt left" src={require('../assets/left.png')}/>
+                      </div>
+                    </div>
+                    <div id="initRel" className="list" style={{display:'none'}}>
+                      <div>fsd</div>
+                      <ul>
+                        <li data="601002">子女</li>
+                        <li data="601004">配偶</li>
+                      </ul>
+                    </div>
+                    <div className="info-group">
+                      <label className="group-hd">身份证号码</label>
+                      <div className="group-ctr"><input id="m_bbrcard" maxLength="18" className="pad .idCardCode" type="text" placeholder="请输入有效的身份证号码"/></div>
+                    </div>
+                    <div className="info-group mt20">
+                      <label className="group-hd">健康告知</label>
+                      <div className="group-ctr group-select rg-dwn">
+                        <strong value="k2" className="clickaudit" onClick={()=>this.setState({showAudit: true})}>点击审核</strong>
+                        <img className="jt down" src={require('../assets/down.png')}/>
+                      </div>
+                    </div>
+                    <div className="check-dis"><p>社保</p><div><label><input type="checkbox" name="sb" id="m_sb" checked="checked"/><span></span></label></div></div>
+                  </div>
+
+                </form>
+              </div>
+            </div>
+            <div className="subsidy-con">
+              <div className="public-subsidy product-box claim-process pt37">
+                <ul className="js-product-box">
+                  <li className={this.state.tabIndex===0?'active':''} onClick={()=>this.setState({tabIndex:0})}>如何获赔</li>
+                  <li className={this.state.tabIndex===1?'active':''} onClick={()=>this.setState({tabIndex:1})}>投保须知</li>
+                  <li className={this.state.tabIndex===2?'active':''} onClick={()=>this.setState({tabIndex:2})}>保险条款</li>
+                  <li className={this.state.tabIndex===3?'active':''} onClick={()=>this.setState({tabIndex:3})}>常见问题</li>
+                </ul>
+                <div id="claimGuid" className="claim-con-wrap js-claim-con-wrap" style={{display: this.state.tabIndex===0? 'block':'none'}}> <div className="claim-box">
+                  <div className="claim-left">
+                    <span>第1步</span>
+                    <span>报案</span>
+                  </div>
+                  <div className="claim-body">
+                    <h4 className="claim-heading">方式一：邮政信箱报案</h4>
+                    <p className="claim-con">被保险人出险后，将理赔材料邮寄至“上海市邮政信箱011-037”。</p>
+                    <div className="h34"></div>
+                    <h4 className="claim-heading">方式二 : 微信报案</h4>
+                    <p className="claim-con">进入安心保险微信公众号，点击下方“快速赔”，选择“意健险快赔”菜单进行提交理赔材料。</p>
+                    <p className="claim-con">如有问题请拨打<a style={{color:'blue'}} href="tel:400-88-45678">400-88-45678</a>客服电话进行咨询。</p>
+                    <h4 className="claim-heading red">温馨提示：</h4>
+                    <p className="claim-con red">1.若被保险人本次理赔申请金额&lt;=1500元，请按照第2步的要求上传资料。</p>
+                    <p className="claim-con red">2.若被保险人本次理赔申请金额&gt;1500元，请按照第2步要求的实物理赔资料邮寄至“上海市邮政信箱011-037”。
+                    </p></div>
+                </div>
+                  <div className="claim-box">
+                    <div className="claim-left">
+                      <span>第2步</span>
+                      <span>上传资料</span>
+                    </div>
+                    <div className="claim-body">
+                      <h4 className="claim-heading">上传资料</h4>
+                      <p className="claim-con">被保险人将以下资料寄送至指定邮政信箱或通过微信平台上传：</p>
+                      <p className="claim-con">① 保险金给付申请书（微信平台免申请书）；</p>
+                      <p className="claim-con">② 申请人的法定身份证明； </p>
+                      <p className="claim-con">③ 保险人指定或认可的医院出具的病历资料，包含但不限于门诊病历记录、出入院记录、手术记录、必要的病理检查或其他科学检查检验报告；</p>
+                      <p className="claim-con">④ 医疗费用的原始凭证、医疗费用结算清单、手术费用清单（若发生手术时需提供）；</p>
+                      <p className="claim-con">⑤ 所能提供的与确认保险事故的性质、原因等有关的其他证明和资料；</p>
+                      <p className="claim-con">⑥ 被保险人的银行账户信息。</p>
+                    </div>
+                  </div>
+                  <div className="claim-box">
+                    <div className="claim-left">
+                      <span>第3步</span>
+                      <span>查勘</span>
+                    </div>
+                    <div className="claim-body">
+                      <h4 className="claim-heading">查勘</h4>
+                      <p className="claim-con">查勘人员对资料进行审核，如有需要我公司会派相关人员进行现场查勘。</p>
+                    </div>
+                  </div>
+
+                  <div className="claim-box">
+                    <div className="claim-left last-claim">
+                      <span>第4步</span>
+                      <span>理赔</span>
+                    </div>
+                    <div className="claim-body">
+                      <h4 className="claim-heading">理赔</h4>
+                      <p className="claim-con">理赔资料审核通过后，十个工作日内将赔款支付到指定账户。</p>
+                    </div>
+                  </div></div>
+                <div id="tbsm" className="product-con notice js-claim-con-wrap" style={{display: this.state.tabIndex===1? 'block':'none'}}>
+                  <div className="">
+                    <p><em>1</em> 适用人群：投保人18周岁-64周岁（含）；被保险人28天至64周岁（含）；</p>
+                    <p><em>2</em> 职业类别：所有被保险人的职业等级应在1-4级（6类<a href="../static/products/HealthEHomeAcc/work.xlsx">职业表</a>）。无稳定工作，5-6类职业者拒保；</p>
+                    <p><em>3</em> 份数限制：一个家庭最多投保1份，且家庭中的每个被保险人仅限投保1份</p>
+                    <p><em>4</em> 保险期间：一年；</p>
+                    <p><em>5</em> 缴费方式：一次性缴费；</p>
+                    <p><em>6</em> 投保规则:</p>
+                    <p className="child-p"> a．家庭单时投保人必须为被保险人。</p>
+                    <p className="child-p"> b．家庭单仅接受与投保人关系为“父母”、“子女”、“配偶”。</p>
+                    <p className="child-p"> c．投保人的父母、子女不可同时存在于一张保单。</p>
+                    <p className="child-p"> d．生存受益人必须为本人。</p>
+                    <p><em>7</em> 本保险自投保人投保支付成功后次日零时起生效。投保人投保后请尽快完成保费支付，未及时支付的订单将在投保当日24时自动失效，需重新点击购买；</p>
+                    <p><em>8</em> 本产品通过互联网在全国范围内销售；</p>
+                    <p><em>9</em> 本产品采用电子保单形式承保，法律效力等同于纸质保单。如果投保人需要纸质保单及发票，请拨打客服电话。若需寄送，邮费将由投保人自行承担；</p>
+                    <p><em>10</em> 温馨提示：安心保险全国统一客服专线 <a style={{color:'blue'}} href="tel:400-88-45678">400-88-45678</a>；</p>
+                    <p><em>11</em> 如实告知：投保人如投保本保险，应依法履行如实告知义务（违反如实告知后果请点击了解详情）；</p>
+                    <p><em>12</em> 投保本保险前，请投保人认真阅读产品页面展示内容以及《安心财产保险有限责任公司团体住院医疗保险条款（2016版）》《安心财产保险有限责任公司附加团体门急诊医疗保险条款》。</p>
+                    <div className="details-box">
+                      <img src={require('../assets/details-icon.png')}/>
+                        <p>违反如实告知的后果</p>
+                        <a className="Knowdetails" onClick={()=>this.setState({showWarning:true})}>了解详情 &gt;</a>
+                    </div>
+                  </div>
+                </div>
+                <div className="product-con general js-claim-con-wrap" style={{display: this.state.tabIndex===2? 'block':'none'}}>
+                  <h2 className="saidclause hospitalization">《安心财产保险有限责任公司团体住院医疗保险条款（2016版）》</h2>
+                  <h2 className="saidclause insurance-medical">《安心财产保险有限责任公司附加团体门急诊医疗保险条款》</h2>
+                </div>
+                <div className="faq-list product-con js-claim-con-wrap pb62" style={{display: this.state.tabIndex===3? 'block':'none'}}>
+
+                  <dl className="pb34">
+                    <dt></dt><dt>安心e家医疗保障计划的保额是怎样的？</dt>
+                    <dd></dd><dd><strong>答：</strong>一个家庭计划一年内各被保险人可共享的保额总计为500万，分住院医疗保险金、住院前后门急诊保险金和特殊门诊医疗保险金三部分。</dd>
+                  </dl>
+
+                  <dl className="pb34">
+                    <dt> </dt><dt>每个保单的投保家庭的累计年度免赔额是怎么样的？</dt>
+                    <dd></dd><dd><strong>答：</strong>一个家庭计划的年度免赔额合计为2万元。</dd>
+                  </dl>
+
+                  <dl className="pb34">
+                    <dt></dt><dt>能只为自己买或为配偶买吗？</dt>
+                    <dd></dd><dd><strong>答：</strong>不能。该保险产品是面向家庭推出的医疗保障计划，被保险人必须为2人以上。</dd>
+                  </dl>
+
+                  <dl className="pb34">
+                    <dt></dt><dt>本款家庭计划对投保人和被保人的年龄要求是怎样的？</dt>
+                    <dd></dd><dd><strong>答：</strong>投保年龄以周岁计算。</dd>
+                    <dd>1.投保人年龄要求：只要投保人年龄在18周岁至64周岁（含）都可投保。</dd>
+                    <dd>2.被保人年龄要求：只要被保人年龄在出生满28天至64周岁（含）都可参保。</dd>
+                  </dl>
+
+                  <dl className="pb34">
+                    <dt></dt><dt>本款家庭计划对投保人数和投保关系的要求是怎样的？</dt>
+                    <dd></dd><dd><strong>答：</strong>投保家庭计划时投保人必须同时为主被保人。</dd><dd>1.投保人数：最少为3人，最多为4人。</dd><dd>2.投保关系：被保人与投保人关系必须为“父母”、“配偶”或“子女”。</dd>
+                  </dl>
+
+                  <dl className="pb34">
+                    <dt></dt><dt>本款家庭计划有无投保份数要求？</dt>
+                    <dd></dd><dd><strong>答：</strong>每位被保人仅限投保1份。</dd>
+                  </dl>
+
+                  <dl className="pb34">
+                    <dt></dt><dt>本款家庭计划有无投保地域限制？</dt>
+                    <dd></dd><dd><strong>答：</strong>限于中华人民共和国境内（不含港、澳、台）。</dd>
+                  </dl>
+
+                  <dl className="pb34">
+                    <dt></dt><dt>如果我已经买了其他公司的同类产品，可以再次购买吗？</dt>
+                    <dd></dd><dd><strong>答：</strong>该产品在本公司限购1份。</dd>
+                  </dl>
+
+                  <dl className="pb34">
+                    <dt></dt><dt>这个产品能自动续保吗？如何续保，费用会变化吗？续保保费会是多少？</dt>
+                    <dd></dd><dd><strong>答：</strong>根据条款中约定，保险期间届满前30日内，投保人可向保险人申请续保。经保险人审核同意并按续保时对应的费率收取保险费后本产品将持续有效。</dd>
+                  </dl>
+
+                  <dl className="pb34">
+                    <dt></dt><dt>是不是买了这个产品后其他产品都不需要买了？</dt>
+                    <dd></dd><dd><strong>答：</strong>需要结合您自身风险需求来决定。通常一个完整的保险组合除了医疗产品，一般还包括意外险、重大疾病保险等。如有兴趣，请浏览“安心商城”的其它产品。</dd>
+                  </dl>
+
+                  <dl className="pb34">
+                    <dt></dt><dt>挂号费是否属于理赔范围？</dt>
+                    <dd></dd><dd><strong>答：</strong>您发生的挂号费如果满足以下任一情形，即属于理赔范围：<br/>1.与本产品约定的特殊门诊医疗（在医院进行门诊肾透析、门诊恶性肿瘤电疗、化疗或放疗）相关。<br/>2.与本产品约定住院前后门急诊医疗费用保险金相关：与住院原因相同，而且发生时间是在相关住院前七日内（含住院当日）和出院后三十日内（含出院当日）。</dd>
+                  </dl>
+
+                  <dl className="pb34">
+                    <dt></dt><dt>住院前后门急诊医疗费这个这个判断的标准是什么？什么样的门急诊才算住院前后门急诊？</dt>
+                    <dd></dd><dd><strong>答：</strong>住院前后门急诊医疗费发生的原因必须与住院原因相同，而且发生的时间须在该次住院前七日内（含住院当日）以及出院后三十日内（含出院当日）。</dd>
+                  </dl>
+
+                  <dl className="pb34">
+                    <dt></dt><dt>这个产品保不保门诊？</dt>
+                    <dd></dd><dd><strong>答：</strong>本产品承担“住院前后门/急诊”以及“特殊门诊”责任。不承担除此以外的门诊责任。</dd>
+                  </dl>
+
+                  <dl className="pb34">
+                    <dt></dt><dt>如果我是以有社保身份购买，但是实际就医我并没有使用社保，如何理赔？</dt>
+                    <dd></dd><dd><strong>答：</strong>若被保险人以社保身份购买，但是实际就医并没有使用社保结算，保险公司将在各项保障责任的限额、免赔额及给付比例范围内计算合理理赔金，再乘以60%给付保险金。</dd>
+                  </dl>
+
+                  <dl className="pb34">
+                    <dt></dt><dt>普通门急诊可以报销吗？</dt>
+                    <dd></dd><dd><strong>答：</strong>1）与本产品约定的特殊门诊医疗（在医院进行门诊肾透析、门诊恶性肿瘤电疗、化疗或放疗）相关。<br/>2）与本产品约定住院前后门急诊医疗费用保险金相关：与住院原因相同，而且发生时间是在相关住院前七日内（含住院当日）和出院后三十日内（含出院当日）。</dd>
+                  </dl>
+
+                  <dl className="pb34">
+                    <dt></dt><dt>请问对就诊医院有什么要求？</dt>
+                    <dd></dd><dd><strong>答：</strong>就诊医院范围为经国家卫生部门审核的二级或二级以上的综合性医院或专科公立医院，但不包括特需医疗、外宾医疗及干部病房，以及作为诊所、康复、联合病房、家庭病床、护理、修养或戒酒、戒毒等医疗机构。</dd>
+                  </dl>
+
+                  <dl className="pb34">
+                    <dt></dt><dt>家庭版的免赔额是多人累加的吗？</dt>
+                    <dd></dd><dd><strong>答：</strong>安心e家医疗保障计划的免赔额为家庭累计年免赔额，家庭累计年免赔额是指保险人根据保险的条件作出赔付之前，投保的所有家庭成员须自行承担的、保险合同约定的累计医疗费用额度。</dd>
+                  </dl>
+
+                  <dl className="pb34">
+                    <dt></dt><dt>安心E家成员中，能给继母或者收养的子女购买吗？</dt>
+                    <dd></dd><dd><strong>答：</strong>《保险法》第十二条：人身保险的投保人在保险合同订立时，对被保险人应当具有保险利益。保险利益是指投保人或者被保险人对保险标的具有的法律上承认的利益。《保险法》第三十一条：投保人对下列人员具有保险利益:（一）本人；（二）配偶、子女、父母；（三）前项以外与投保人有抚养、赡养或者扶养关系的家庭其他成员、近亲属；（四）与投保人有劳动关系的劳动者。
+                    因此，投保人与符合我国法定要求的继母和养子女之间存在保险利益，可以为继母或收养的子女购买保险。收养需要具备合法有效的收养证明。</dd>
+                  </dl>
+
+                </div>
+              </div>
+            </div>
+
+            <div className="subsidy-con" style={{marginBottom:0}}>
+              <div className="common-problem public-subsidy pt36">
+                <p>产品售卖地区：全国</p>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    )
+  }
+}

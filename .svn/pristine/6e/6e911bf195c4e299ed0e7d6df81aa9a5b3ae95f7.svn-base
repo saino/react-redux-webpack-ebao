@@ -1,0 +1,69 @@
+.modal-container {
+  font-size: 0.633333rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 101020102102;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.4);
+  .modal-content {
+    display: -webkit-box;
+    display: box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    position: absolute;
+    z-index: 2002300023;
+    left: 6%;
+    top: 6%;
+    width: 88%;
+    max-height: 88%!important;
+    height: 88%;
+    overflow: hidden;
+    background: url(./assets/bg.png) repeat;
+    border-radius: 10px;
+    .modal-header {
+      color: #fff;
+      background-color: #23aaff;
+      position: relative;
+      line-height: 1rem;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      text-indent: 1em;
+      font-size: .34rem;
+      font-style: normal;
+      font-weight: normal;
+      text-align: center;
+      .close {
+        margin-top: 0.34rem;
+        margin-right: 0.34rem;
+        padding: 0;
+        cursor: pointer;
+        background: transparent;
+        border: 0;
+        -webkit-appearance: none;
+        float: right;
+        font-size: 0.34rem;
+        font-weight: 700;
+        line-height: 1;
+        color: #000;
+        text-shadow: 0 1px 0 #fff;
+        opacity: .2;
+        filter: alpha(opacity=20);
+      }
+    }
+    .modal-body {
+      -webkit-box-flex: 1;
+      box-flex: 1;
+      -webkit-flex: 1;
+      flex: 1;
+      overflow-y: scroll;
+      padding: 15px;
+      font-size: 0.34rem;
+    }
+  }
+}

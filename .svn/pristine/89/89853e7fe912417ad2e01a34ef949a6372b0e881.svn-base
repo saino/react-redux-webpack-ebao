@@ -1,0 +1,10 @@
+const config = {
+    spProductServiceBase : 'http://210.13.77.75:15900/ls/services/mobile/productService',
+    spPlanServiceBase: 'http://210.13.77.75:15900/ls/services/mobile/planService',
+    pdServiceBase: 'http://210.13.77.75:15900/ls/services/pdrest/lifeProductService',
+    spServerBase: 'http://210.13.77.75:15900',
+    defaultLanguage: "en",
+    wechatAppid: 'test',
+};
+
+export default config;

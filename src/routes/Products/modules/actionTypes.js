@@ -1,0 +1,1 @@
+export const RECEIVE_PRODUCT_LIST = 'products/RECEIVE_PRODUCT_LIST'
