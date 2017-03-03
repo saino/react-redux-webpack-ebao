@@ -55,7 +55,6 @@ export default class ProductsView extends Component {
   }
 
   gotoProposal(code) {
-    console.log(code,"ddddddddd");
     let url = '/proposal/' + code;
     browserHistory.push(url);
   }

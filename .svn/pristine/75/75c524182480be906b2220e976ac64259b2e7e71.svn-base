@@ -5,7 +5,7 @@ import Questionnaire from './Questionnaire';
 import Picker from '../components/Picker';
 import {IdentityCodeValid, getAge, getBirth, getProposalDay, getGender} from '../../common/utils';
 
-const PRODUCT_IDS = [1010910, 1010911];
+const PRODUCT_IDS = [1082104, 1082105];
 const PACKAGE_IDS = [9100249, 9100250];
 const PH_LA_RELATIONS = [
   {value:10, label:'子女'},
@@ -357,7 +357,7 @@ export default class Details extends Component {
             <div>
               <div className="subsidy-ad-tit">
                 <div>
-                  <h2>安心综合医疗保险</h2>
+                  <h2>安联臻爱医疗保险</h2>
                   <p></p>
                 </div>
               </div>
@@ -366,7 +366,7 @@ export default class Details extends Component {
                   <li>
                     <div>
                       <p>适用人群</p>
-                      <p><span>60周岁及以下</span><span>健康人群</span></p>
+                      <p><span>30天-60周岁</span><span>健康人群</span></p>
                     </div>
                   </li>
                   <li>
@@ -378,7 +378,7 @@ export default class Details extends Component {
                   <li>
                     <div>
                       <p>保险费</p>
-                      <p>128元起</p>
+                      <p>152元起</p>
                     </div>
                   </li>
                 </ul>
